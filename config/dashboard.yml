@@ -1,0 +1,14 @@
+http:
+  routers:
+    api:
+      rule: Host(`traefik.example.com`)
+      entryPoints: 
+        - websecure
+      middlewares:
+        - traefik-auth
+      service: api@internal 
+  middlewares:
+    traefik-auth:
+      basicAuth:
+        users:
+          - test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/

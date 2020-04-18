@@ -1,0 +1,30 @@
+entrypoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: :443
+    http:
+      middlewares:
+        - security-header-middleware@file
+      tls:
+        certResolver: cert
+providers:
+  docker:
+    exposedByDefault: false
+    swarmMode: true
+    network: traefik-network
+  file:
+    directory: /etc/traefik
+certificatesResolvers:
+  cert:
+    acme:
+      storage: /cert/acme.json
+      keytype: EC384
+      tlsChallenge: true
+api:
+  dashboard: true
