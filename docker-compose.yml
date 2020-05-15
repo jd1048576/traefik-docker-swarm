@@ -1,5 +1,5 @@
 version: "3.7"
-services: 
+services:
   traefik:
     image: traefik:v2.2
     deploy:
@@ -13,7 +13,7 @@ services:
         delay: 5s
         max_attempts: 3
         window: 10s
-    networks: 
+    networks:
       - traefik-network
     ports:
       - 8080:80
@@ -27,6 +27,5 @@ networks:
   traefik-network:
     name: traefik-network
     driver: overlay
-    driver_opts: 
+    driver_opts:
       encrypted: ""
-   

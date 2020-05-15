@@ -1,4 +1,4 @@
-# Traefik Docker Swarm Ingress
+# Traefik Docker Swarm
 
 ### Deployment
 
@@ -18,7 +18,7 @@ docker swarm leave -f
 
 ```
 version: "3.7"
-services: 
+services:
   container:
     image: container-image:1.0
     deploy:
@@ -34,7 +34,7 @@ services:
         delay: 5s
         max_attempts: 3
         window: 10s
-    networks: 
+    networks:
       - traefik-network
 
 networks:
