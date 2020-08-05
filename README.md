@@ -2,14 +2,14 @@
 
 ### Deployment
 
-```
+```sh
 docker swarm init --advertise-addr 1.2.3.4
 docker stack deploy -c docker-compose.yml --with-registry-auth traefik
 ```
 
 ### Removal
 
-```
+```sh
 docker stack rm traefik
 docker swarm leave -f
 ```
