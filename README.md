@@ -16,7 +16,7 @@ docker swarm leave -f
 
 ### Adding a service
 
-```
+```yaml
 version: "3.7"
 services:
   container:
